@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HomeComponent } from './pages/home/home.component';
 import {MatCardModule} from '@angular/material/card';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {MatCardModule} from '@angular/material/card';
     ReactiveFormsModule,
     HttpClientModule,
     MatSnackBarModule,
-    MatCardModule
+    MatCardModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
