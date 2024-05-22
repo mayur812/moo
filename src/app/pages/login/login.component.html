@@ -10,7 +10,7 @@
         <!-- Username Field -->
         <mat-form-field class="full-width" appearance="outline">
           <mat-label>Username</mat-label>
-          <input [(ngModel)]="user.username" name="username" matInput 
+          <input [(ngModel)]="loginData.username" name="username" matInput 
           placeholder="Enter here" required>
           <mat-error *ngIf="registerForm.controls['username']?.invalid && (registerForm.controls['username']?.dirty || registerForm.controls['username']?.touched)">
             Username is required.
@@ -20,7 +20,7 @@
         <!-- Password Field -->
         <mat-form-field class="full-width" appearance="outline">
           <mat-label>Password</mat-label>
-          <input [(ngModel)]="user.password" name="password" matInput [type]="hide ? 'password' : 'text'" placeholder="Enter here" required>
+          <input [(ngModel)]="loginData.password" name="password" matInput [type]="hide ? 'password' : 'text'" placeholder="Enter here" required>
           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
             <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
           </button>
