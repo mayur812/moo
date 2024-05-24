@@ -18,10 +18,13 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HomeComponent } from './pages/home/home.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { authInterceptorsProviders } from './services/auth.interceptor';
+import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-dashboard.component';
+import { UserDashboardComponent } from './pages/normal/user-dashboard/user-dashboard.component';
 
 @NgModule({
   declarations: [
-    AppComponent,NavbarComponent,FootbarComponent,LoginComponent,SignupComponent, HomeComponent
+    AppComponent,NavbarComponent,FootbarComponent,LoginComponent,SignupComponent, HomeComponent, AdminDashboardComponent, UserDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatCardModule,
     MatToolbarModule
   ],
-  providers: [],
+  providers: [authInterceptorsProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

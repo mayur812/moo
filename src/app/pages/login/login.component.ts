@@ -32,16 +32,31 @@ export class LoginComponent implements OnInit {
       return
     }
     
-    if (this.loginData.password.length < 8 || !this.hasSpecialChars(this.loginData.password)) {
+    if (this.loginData.password.length < 8 ) {
       this.snack.open("Password does not follow the guidlines!",'Ok')
       return
     }
     this.loginService.generateToken(this.loginData).subscribe(
       (data:any) => {
         console.log(data);
+        this.loginService.loginUser(data.token);
+        this.loginService.getCurrentUser().subscribe(
+          (user:any)=>{
+            console.log(user);
+            this.loginService.setUser(user);
+            if (this.loginService.getUserRole() == 'ADMIN') {
+              window.location.href='/admin-dashboard';
+            } else if (this.loginService.getUserRole() == 'NORMAL') {
+              window.location.href='/user-dashboard'
+            } else {
+              this.loginService.logout();
+            }
+          }
+        )
       },
       (error) => {
         console.log(error)
+        this.snack.open("Invalid Username or Password!","Ok",{duration:5000})
       }
     );
     
