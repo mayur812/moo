@@ -7,6 +7,7 @@ import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-das
 import { UserDashboardComponent } from './pages/normal/user-dashboard/user-dashboard.component';
 import { AdminGuard } from './guards/admin.guard';
 import { NormalGuard } from './guards/normal.guard';
+import { NobackGuard } from './guards/noback.guard';
 
 const routes: Routes = [
 
@@ -14,17 +15,20 @@ const routes: Routes = [
   {
     path:'',
     component:HomeComponent,
-    pathMatch:'full'
+    pathMatch:'full',
+    canActivate:[NobackGuard],
   },
   {
     path:'signup',
     component:SignupComponent,
-    pathMatch:'full'
+    pathMatch:'full',
+    canActivate:[NobackGuard],
   },
   {
     path:'login',
     component:LoginComponent,
-    pathMatch:'full'
+    pathMatch:'full',
+    canActivate:[NobackGuard],
   },
   {
     path:'admin-dashboard',

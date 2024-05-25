@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UserService } from './../../services/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import Swal from 'sweetalert2'
+import { error } from 'console';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -35,9 +36,14 @@ export class SignupComponent  {
     }
     else {
       this.userService.addUser(this.user).subscribe(
-      (data) => {
-        console.log(data)
-        Swal.fire("Signup Success","Your registration is success","success")
+      (data:any) => {
+        if (data.error != null) {
+          this.snack.open(data.error,'Ok!',{
+            duration:5000,
+          })
+        } else {
+        Swal.fire("Signup Success","Your registration is success","success");
+        }
       },
       (error) => {
         this.snack.open("Something went wrong",'',{
