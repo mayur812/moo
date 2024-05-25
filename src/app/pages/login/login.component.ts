@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { error } from 'console';
 import { LoginService } from 'src/app/services/login.service';
-import Swal from 'sweetalert2'
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -45,9 +45,9 @@ export class LoginComponent implements OnInit {
             console.log(user);
             this.loginService.setUser(user);
             if (this.loginService.getUserRole() == 'ADMIN') {
-              window.location.href='/admin-dashboard';
+              this.navigateTo('/admin-dashboard');
             } else if (this.loginService.getUserRole() == 'NORMAL') {
-              window.location.href='/user-dashboard'
+              this.navigateTo('/user-dashboard');
             } else {
               this.loginService.logout();
             }
@@ -61,7 +61,12 @@ export class LoginComponent implements OnInit {
     );
     
   }
-  constructor(private snack:MatSnackBar,public loginService:LoginService) { }
+  navigateTo(path: string) {
+    // Clear history and navigate to the specified path
+    window.history.replaceState({}, document.title, path);
+    window.location.href = path;
+  }
+  constructor(private snack:MatSnackBar,public loginService:LoginService,private location: Location) { }
 
   ngOnInit() {
   }

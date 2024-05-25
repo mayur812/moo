@@ -7,10 +7,21 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  isLoggedIn = false;
+  user:any=null;
 
   constructor(public loginService:LoginService) { }
 
   ngOnInit() {
+    this.isLoggedIn = this.loginService.isLoggedIn();
+    this.user = this.loginService.getUser();
+  }
+
+  public logout() {
+    this.loginService.logout();
+    this.isLoggedIn = false;
+    this.user = null;
+    window.location.reload();
   }
 
 }
