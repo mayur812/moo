@@ -25,6 +25,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import {MatListModule} from '@angular/material/list';
 import { SidebarComponent } from './pages/admin/sidebar/sidebar.component';
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
+import { MatTableModule } from '@angular/material/table';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
     MatSnackBarModule,
     MatCardModule,
     MatToolbarModule,
-    MatListModule
+    MatListModule,
+    MatTableModule,
+    MatGridListModule
   ],
   providers: [authInterceptorsProviders],
   bootstrap: [AppComponent]
