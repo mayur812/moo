@@ -1,9 +1,9 @@
 
-  <mat-toolbar color="primary" >
+  <mat-toolbar color="primary" class="mb20">
     <a routerLink="/" mat-mini-fab color="primary" >
       <mat-icon>book</mat-icon>
     </a>
-    <span class="ml20">Shiksha</span>
+    <span style="margin-left:5px;">Shiksha</span>
     <span class="spacer"></span>
     <a routerLink="/login" *ngIf="!isLoggedIn" >
       <button mat-flat-button color="primary">
@@ -17,7 +17,7 @@
         <span> Signup</span>
       </button>
     </a>
-    <a *ngIf="isLoggedIn && user!= null" class="text-center mr20" >
+    <a *ngIf="isLoggedIn && user!= null" class="text-center" >
       Welcome {{user.username}} 
     </a>
     <a routerLink="/" *ngIf="isLoggedIn" (click)="logout()">

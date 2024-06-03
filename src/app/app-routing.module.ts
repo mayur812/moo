@@ -10,6 +10,8 @@ import { NormalGuard } from './guards/normal.guard';
 import { NobackGuard } from './guards/noback.guard';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
+import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
+import { AddCategoriesComponent } from './pages/admin/add-categories/add-categories.component';
 
 const routes: Routes = [
 
@@ -19,24 +21,21 @@ const routes: Routes = [
     component:HomeComponent,
     pathMatch:'full',
     canActivate:[NobackGuard],
-    pathMatch:'full',
-    canActivate:[NobackGuard],
+  
   },
   {
     path:'signup',
     component:SignupComponent,
     pathMatch:'full',
     canActivate:[NobackGuard],
-    pathMatch:'full',
-    canActivate:[NobackGuard],
+
   },
   {
     path:'login',
     component:LoginComponent,
     pathMatch:'full',
     canActivate:[NobackGuard],
-    pathMatch:'full',
-    canActivate:[NobackGuard],
+
   },
   {
     path:'admin-dashboard',
@@ -49,6 +48,14 @@ const routes: Routes = [
     {
       path:'',
       component:WelcomeComponent,
+    },
+    {
+      path:'categories',
+      component:ViewCategoriesComponent,
+    },
+    {
+      path:'add-category',
+      component:AddCategoriesComponent,
     },
     ],
   },

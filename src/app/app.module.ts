@@ -27,12 +27,15 @@ import { SidebarComponent } from './pages/admin/sidebar/sidebar.component';
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { MatTableModule } from '@angular/material/table';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
+import { AddCategoriesComponent } from './pages/admin/add-categories/add-categories.component';
+import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
 
 @NgModule({
   declarations: [
     AppComponent,NavbarComponent,FootbarComponent,LoginComponent,
     SignupComponent, HomeComponent, AdminDashboardComponent,
-     UserDashboardComponent, ProfileComponent, SidebarComponent, WelcomeComponent
+     UserDashboardComponent, ProfileComponent, SidebarComponent, WelcomeComponent, ViewCategoriesComponent, AddCategoriesComponent, ViewQuizzesComponent
   ],
   imports: [
     BrowserModule,
