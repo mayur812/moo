@@ -38,11 +38,9 @@ export class LoginComponent implements OnInit {
     }
     this.loginService.generateToken(this.loginData).subscribe(
       (data:any) => {
-        console.log(data);
         this.loginService.loginUser(data.token);
         this.loginService.getCurrentUser().subscribe(
           (user:any)=>{
-            console.log(user);
             this.loginService.setUser(user);
             if (this.loginService.getUserRole() == 'ADMIN') {
               this.navigateTo('/admin-dashboard');
@@ -55,7 +53,6 @@ export class LoginComponent implements OnInit {
         )
       },
       (error) => {
-        console.log(error)
         this.snack.open("Invalid Username or Password!","Ok",{duration:5000})
       }
     );
