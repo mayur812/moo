@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 import { CategoryService } from 'src/app/services/category.service';
 import { QuizService } from 'src/app/services/quiz.service';
@@ -23,7 +24,8 @@ export class AddQuizComponent implements OnInit {
 
   }
 
-  constructor(private categoryService:CategoryService, private snack:MatSnackBar, private quizService:QuizService) { }
+  constructor(private categoryService:CategoryService, private snack:MatSnackBar, 
+    private quizService:QuizService, private router:Router) { }
 
   ngOnInit(): void {
     this.categoryService.categories().subscribe(
@@ -48,9 +50,12 @@ export class AddQuizComponent implements OnInit {
             duration:5000,
           })
         } else {
-          this.snack.open("Quiz Added Successfully",'Ok!',{
+          const snackBarRef=this.snack.open("Quiz Added Successfully",'Ok!',{
             duration:5000,
           })
+          snackBarRef.onAction().subscribe(() => {
+            this.router.navigate(['/admin-dashboard/quizzes']); // Replace with your target route
+          });
         }
       },
       (error) => {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { title } from 'process';
 import { CategoryService } from 'src/app/services/category.service';
 
@@ -15,7 +16,7 @@ export class AddCategoriesComponent implements OnInit {
     description:''
   }
 
-  constructor(private categoryService:CategoryService,private snack:MatSnackBar) { }
+  constructor(private categoryService:CategoryService,private snack:MatSnackBar,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -27,9 +28,10 @@ export class AddCategoriesComponent implements OnInit {
             duration:5000,
           })
         } else {
-          this.snack.open("Category Added Successfully",'Ok!',{
-            duration:5000,
-          })
+          const snackBarRef=this.snack.open("Category Added Successfully",'Ok!',)
+          snackBarRef.onAction().subscribe(() => {
+            this.router.navigate(['/admin-dashboard/categories']); // Replace with your target route
+          });
         }
       },
       (error) => {
