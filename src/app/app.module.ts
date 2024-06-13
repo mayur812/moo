@@ -35,12 +35,13 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { UpdateQuizesComponent } from './pages/admin/update-quizes/update-quizes.component';
 import { ViewQuestionsComponent } from './pages/admin/view-questions/view-questions.component';
+import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 
 @NgModule({
   declarations: [
     AppComponent,NavbarComponent,FootbarComponent,LoginComponent,
     SignupComponent, HomeComponent, AdminDashboardComponent,
-     UserDashboardComponent, ProfileComponent, SidebarComponent, WelcomeComponent, ViewCategoriesComponent, AddCategoriesComponent, ViewQuizzesComponent, AddQuizComponent, UpdateQuizesComponent, ViewQuestionsComponent
+     UserDashboardComponent, ProfileComponent, SidebarComponent, WelcomeComponent, ViewCategoriesComponent, AddCategoriesComponent, ViewQuizzesComponent, AddQuizComponent, UpdateQuizesComponent, ViewQuestionsComponent, AddQuestionComponent
   ],
   imports: [
     BrowserModule,

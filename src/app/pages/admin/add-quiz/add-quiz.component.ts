@@ -43,6 +43,7 @@ export class AddQuizComponent implements OnInit {
         this.snack.open("Please select Category of Quiz","Ok")
         return 
     }
+  
     this.quizService.addQuiz(this.quiz).subscribe(
       (data:any) => {
         if (data.error != null) {

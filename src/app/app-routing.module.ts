@@ -16,6 +16,7 @@ import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.co
 import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
 import { UpdateQuizesComponent } from './pages/admin/update-quizes/update-quizes.component';
 import { ViewQuestionsComponent } from './pages/admin/view-questions/view-questions.component';
+import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 
 const routes: Routes = [
 
@@ -77,6 +78,10 @@ const routes: Routes = [
       path:'view-questions/:id/:title',
       component:ViewQuestionsComponent,
     },
+    {
+      path:'add-question/:id',
+      component:AddQuestionComponent,
+    },
     ],
   },
   {
@@ -90,6 +95,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+exports: [RouterModule]
 })
 export class AppRoutingModule { }
