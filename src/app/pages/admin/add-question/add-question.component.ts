@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { QuestionsService } from 'src/app/services/questions.service';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'app-add-question',
@@ -10,6 +11,7 @@ import { QuestionsService } from 'src/app/services/questions.service';
 })
 export class AddQuestionComponent implements OnInit {
 
+  public Editor = ClassicEditor;
   quizId:number=0;
   question={
     quiz:{

@@ -2,11 +2,12 @@
 
 <mat-card *ngFor="let q of questions;let i = index" >
     <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{q.content}}</mat-card-title>
         <mat-card-subtitle>
             Question {{i+1}}
         </mat-card-subtitle>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title  style="font-weight:normal;"><span [innerHTML]="q.content"></span></mat-card-title>
+        
     </mat-card-header>
     <mat-card-content>
         <div class="container-fluid">
@@ -24,8 +25,17 @@
                    D: {{q.option4}}
                 </div>
             </div>
+            <mat-divider></mat-divider>
+            <p style="margin: 5px;"><b>Correct Answer:</b> {{q.answer}}</p>
         </div>
     </mat-card-content>
+    <button mat-raised-button color="accent">
+        <mat-icon>update</mat-icon>
+        <span> Update</span>
+    </button>
+    <button mat-mini-fab color="warn" (click)="deleteQuestion(q.questionId)">
+        <mat-icon>delete</mat-icon>
+    </button>
     <mat-card-actions >
         
     </mat-card-actions>
