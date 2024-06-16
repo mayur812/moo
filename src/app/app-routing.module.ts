@@ -17,6 +17,7 @@ import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
 import { UpdateQuizesComponent } from './pages/admin/update-quizes/update-quizes.component';
 import { ViewQuestionsComponent } from './pages/admin/view-questions/view-questions.component';
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
+import { LoadQuizComponent } from './pages/normal/load-quiz/load-quiz.component';
 
 const routes: Routes = [
 
@@ -87,8 +88,14 @@ const routes: Routes = [
   {
     path:'user-dashboard',
     component:UserDashboardComponent,
-    pathMatch:'full',
     canActivate:[NormalGuard],
+    children:[
+      {
+        path:':catId',
+        component:LoadQuizComponent
+      }
+    ],
+
   }
 
 ];

@@ -38,12 +38,13 @@ import { ViewQuestionsComponent } from './pages/admin/view-questions/view-questi
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { SidebarUserComponent } from './pages/normal/sidebar-user/sidebar-user.component';
+import { LoadQuizComponent } from './pages/normal/load-quiz/load-quiz.component';
 
 @NgModule({
   declarations: [
     AppComponent,NavbarComponent,FootbarComponent,LoginComponent,
     SignupComponent, HomeComponent, AdminDashboardComponent,
-     UserDashboardComponent, ProfileComponent, SidebarComponent, WelcomeComponent, ViewCategoriesComponent, AddCategoriesComponent, ViewQuizzesComponent, AddQuizComponent, UpdateQuizesComponent, ViewQuestionsComponent, AddQuestionComponent, SidebarUserComponent
+     UserDashboardComponent, ProfileComponent, SidebarComponent, WelcomeComponent, ViewCategoriesComponent, AddCategoriesComponent, ViewQuizzesComponent, AddQuizComponent, UpdateQuizesComponent, ViewQuestionsComponent, AddQuestionComponent, SidebarUserComponent, LoadQuizComponent
   ],
   imports: [
     BrowserModule,
