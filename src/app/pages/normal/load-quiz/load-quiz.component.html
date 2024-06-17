@@ -1,33 +1,44 @@
 <div class="container-fluid">
     <h1>
-        Available Quizes
+        Available Quizzes
     </h1>
     <div class="row" *ngIf="quizes">
         
-        <div class="col-md-4" *ngFor="let q of quizes">
-
+        <div class="col-md-4" *ngFor="let q of quizes;" >
+                <mat-card>
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-image"></div>
+                        <mat-card-title class="text-truncate">
+                            {{q.title}}
+                        </mat-card-title>
+                        <mat-card-subtitle>
+                            {{q.category.title}}
+                        </mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p class="text-truncate">{{q.description}}</p>
+                        
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button mat-flat-button color="primary">View</button>
+                        <button mat-flat-button color="accent">Start</button>
+                        <button mat-button color="primary">Que:{{q.numberOfQuestions}}</button>
+                        <button mat-button color="warn">Marks:{{q.maxMarks}}</button>
+                    </mat-card-actions>
+                </mat-card>
+        </div>
+        <div class="col-md-4" *ngIf="quizes.length == 0">
             <mat-card>
                 <mat-card-header>
-                    <div mat-card-avatar class="example-header-image"></div>
+                    <div mat-card-avatar ><mat-icon>dangerous</mat-icon></div>
                     <mat-card-title class="text-truncate">
-                        {{q.title}}
+                        No Quiz in this category
                     </mat-card-title>
-                    <mat-card-subtitle>
-                        {{q.category.title}}
-                    </mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-content>
-                    <p class="text-truncate">{{q.description}}</p>
-                    
+                    It seems like you have not been assigned any quiz in this particular category!
                 </mat-card-content>
-                <mat-card-actions>
-                    <button mat-flat-button color="primary">View</button>
-                    <button mat-flat-button color="accent">Start</button>
-                    <button mat-button color="primary">Que:{{q.numberOfQuestions}}</button>
-                    <button mat-button color="warn">Marks:{{q.maxMarks}}</button>
-                </mat-card-actions>
             </mat-card>
-
         </div>
     </div>
 </div>

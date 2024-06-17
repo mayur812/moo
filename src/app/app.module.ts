@@ -39,6 +39,8 @@ import { AddQuestionComponent } from './pages/admin/add-question/add-question.co
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { SidebarUserComponent } from './pages/normal/sidebar-user/sidebar-user.component';
 import { LoadQuizComponent } from './pages/normal/load-quiz/load-quiz.component';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatTooltipModule} from '@angular/material/tooltip'
 
 @NgModule({
   declarations: [
@@ -65,7 +67,9 @@ import { LoadQuizComponent } from './pages/normal/load-quiz/load-quiz.component'
     MatGridListModule,
     MatSlideToggleModule,
     MatSelectModule,
-    CKEditorModule
+    CKEditorModule,
+    MatBadgeModule,
+    MatToolbarModule
   ],
   providers: [authInterceptorsProviders],
   bootstrap: [AppComponent]

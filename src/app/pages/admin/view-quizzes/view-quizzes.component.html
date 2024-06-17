@@ -5,8 +5,8 @@
 </mat-card>
 <mat-card *ngFor="let q of quizes" >
     <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{q.title}}</mat-card-title>
+        <div  mat-card-avatar class="example-header-image"></div>
+        <mat-card-title matBadge="{{ q.active ? 'On' : 'Off' }}" [matBadgeOverlap]="false" [matBadgeColor]="q.active ? 'accent' : 'warn'" >{{q.title}}</mat-card-title>
         <mat-card-subtitle>
             {{q.category.title}} 
         </mat-card-subtitle>
