@@ -3,7 +3,7 @@
     <a routerLink="/" mat-mini-fab color="primary" >
       <mat-icon>book</mat-icon>
     </a>
-    <span style="margin-left:5px;">Shiksha</span>
+    <span style="margin-left:5px;">QuizPreen</span>
     <span class="spacer"></span>
     <a routerLink="/login" *ngIf="!isLoggedIn" >
       <button mat-flat-button color="primary">
@@ -17,8 +17,8 @@
         <span> Signup</span>
       </button>
     </a>
-    <a *ngIf="isLoggedIn && user!= null" class="text-center" >
-      Welcome {{user.username}} 
+    <a *ngIf="isLoggedIn && user!= null" class="text-center ml20" >
+      Welcome {{user.name}} 
     </a>
     <a routerLink="/" *ngIf="isLoggedIn" (click)="logout()">
       <button mat-flat-button color="primary">

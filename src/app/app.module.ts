@@ -40,13 +40,16 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { SidebarUserComponent } from './pages/normal/sidebar-user/sidebar-user.component';
 import { LoadQuizComponent } from './pages/normal/load-quiz/load-quiz.component';
 import {MatBadgeModule} from '@angular/material/badge';
-import {MatTooltipModule} from '@angular/material/tooltip'
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { InstructionsComponent } from './pages/normal/instructions/instructions.component';
+import { StartComponent } from './pages/normal/start/start.component'
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
     AppComponent,NavbarComponent,FootbarComponent,LoginComponent,
     SignupComponent, HomeComponent, AdminDashboardComponent,
-     UserDashboardComponent, ProfileComponent, SidebarComponent, WelcomeComponent, ViewCategoriesComponent, AddCategoriesComponent, ViewQuizzesComponent, AddQuizComponent, UpdateQuizesComponent, ViewQuestionsComponent, AddQuestionComponent, SidebarUserComponent, LoadQuizComponent
+     UserDashboardComponent, ProfileComponent, SidebarComponent, WelcomeComponent, ViewCategoriesComponent, AddCategoriesComponent, ViewQuizzesComponent, AddQuizComponent, UpdateQuizesComponent, ViewQuestionsComponent, AddQuestionComponent, SidebarUserComponent, LoadQuizComponent, InstructionsComponent, StartComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +72,8 @@ import {MatTooltipModule} from '@angular/material/tooltip'
     MatSelectModule,
     CKEditorModule,
     MatBadgeModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatRadioModule
   ],
   providers: [authInterceptorsProviders],
   bootstrap: [AppComponent]

@@ -11,6 +11,9 @@ export class QuestionsService {
   constructor(private http:HttpClient) { }
 
   public getQuestionsOfQuiz (quizId:number) {
+    return this.http.get(`${baseUrl}/questions/quiz/all/${quizId}`)
+  }
+  public getQuestionsOfQuizForTest (quizId:number) {
     return this.http.get(`${baseUrl}/questions/quiz/${quizId}`)
   }
 

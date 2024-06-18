@@ -1,0 +1,60 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <mat-card>
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-ins"></div>
+                    <mat-card-title>
+                        Instructions
+                    </mat-card-title>
+                </mat-card-header>
+            </mat-card>
+        </div>
+        <div class="col-md-8">
+            <ng-container *ngIf="questions">
+                <mat-card>
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-quiz"></div>
+                        <mat-card-title>
+                            {{questions[0].quiz.title}}
+                        </mat-card-title>
+                    </mat-card-header>
+                </mat-card>
+                <mat-card *ngFor="let q of questions;let i = index">
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-question"></div>
+                        <mat-card-title style="font-weight: normal;">
+                           <p [innerHTML]="q.content"></p>
+                        </mat-card-title>
+                        <mat-card-subtitle>Question {{i+1}}</mat-card-subtitle>
+                        
+                    </mat-card-header>
+                    <mat-divider></mat-divider>
+                    <mat-card-content>
+                        <h3>
+                            <mat-radio-group class="radio-group">
+                                <mat-radio-button class="radio-button"  [value]="q.option1" >
+                                  {{q.option1}}
+                                </mat-radio-button>
+                                <mat-radio-button class="radio-button"  [value]="q.option2">
+                                  {{q.option2}}
+                                </mat-radio-button>
+                                <mat-radio-button class="radio-button"  [value]="q.option3">
+                                  {{q.option3}}
+                                </mat-radio-button>
+                                <mat-radio-button class="radio-button"  [value]="q.option4">
+                                  {{q.option4}}
+                                </mat-radio-button>
+                            </mat-radio-group>
+                        </h3>
+                    </mat-card-content>
+                    
+                </mat-card>
+
+            </ng-container>
+        </div>
+        <div class="col-md-2">
+    
+        </div>
+    </div>
+</div>

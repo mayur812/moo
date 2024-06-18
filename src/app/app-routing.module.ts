@@ -18,6 +18,8 @@ import { UpdateQuizesComponent } from './pages/admin/update-quizes/update-quizes
 import { ViewQuestionsComponent } from './pages/admin/view-questions/view-questions.component';
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 import { LoadQuizComponent } from './pages/normal/load-quiz/load-quiz.component';
+import { InstructionsComponent } from './pages/normal/instructions/instructions.component';
+import { StartComponent } from './pages/normal/start/start.component';
 
 const routes: Routes = [
 
@@ -93,10 +95,20 @@ const routes: Routes = [
       {
         path:':catId',
         component:LoadQuizComponent
-      }
+      },
+      {
+        path:'instructions/:quizId',
+        component:InstructionsComponent
+      },
+      
     ],
 
-  }
+  },
+  {
+    path:'start/:quizId',
+    component:StartComponent,
+    canActivate:[NormalGuard],
+  },
 
 ];
 

@@ -1,0 +1,25 @@
+.example-header-ins {
+    background-image: url(src\assets\fail.png);
+    background-size: cover;
+  }
+.example-header-quiz {
+    background-image: url(src\assets\quiz.png);
+    background-size: cover;
+  }
+.example-header-question {
+    background-image: url(src\assets\question.png);
+    background-size: cover;
+  }
+  mat-card {
+    margin-bottom: 20px;
+  }
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+    align-items: flex-start;
+  }
+  
+  .radio-button {
+    margin: 5px;
+  }
