@@ -20,6 +20,9 @@ export class QuestionsService {
   public addQuestion (question:any) {
     return this.http.post(`${baseUrl}/questions/`,question)
   }
+  public result (question:any) {
+    return this.http.post(`${baseUrl}/questions/result/`,question)
+  }
 
   public deleteQuestion (quizId:number) {
     return this.http.delete(`${baseUrl}/questions/${quizId}`)

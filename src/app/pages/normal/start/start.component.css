@@ -10,6 +10,10 @@
     background-image: url(src\assets\question.png);
     background-size: cover;
   }
+.example-header-result {
+    background-image: url(src\assets\result.png);
+    background-size: cover;
+  }
   mat-card {
     margin-bottom: 20px;
   }
@@ -22,4 +26,10 @@
   
   .radio-button {
     margin: 5px;
+  }
+
+  h2 {
+    font-weight: normal;
+    display: flex;
+    justify-content: center;
   }
