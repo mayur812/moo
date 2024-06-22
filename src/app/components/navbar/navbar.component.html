@@ -17,13 +17,12 @@
         <span> Signup</span>
       </button>
     </a>
-    <a *ngIf="isLoggedIn && user!= null" class="text-center ml20" >
-      Welcome {{user.name}} 
+    <a  color="primary" *ngIf="isLoggedIn && user!= null" class="text-center mr20 " style="font-size: medium;" >
+      Welcome {{user.username}}
     </a>
     <a routerLink="/" *ngIf="isLoggedIn" (click)="logout()">
-      <button mat-flat-button color="primary">
+      <button mat-mini-fab color="primary" style="margin-left: 5px;">
         <mat-icon>logout</mat-icon>
-        <span> logout</span>
       </button>
     </a>
   </mat-toolbar>

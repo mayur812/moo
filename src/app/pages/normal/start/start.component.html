@@ -8,6 +8,20 @@
                         Instructions
                     </mat-card-title>
                 </mat-card-header>
+                <mat-card-content>
+                  <mat-list>
+                        <mat-list-item>
+                            <p>1.Do not refresh the page , it cause questions to shuffle.</p>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <p>2.Do not switch tabs.</p>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <p>3.Do not mizimize window.</p>
+                        </mat-list-item>
+                      
+                    </mat-list>
+                </mat-card-content>
             </mat-card>
         </div>
         <div class="col-md-8">
@@ -60,7 +74,26 @@
             </ng-container>
         </div>
         <div class="col-md-2">
-        
+          <mat-card>
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-timer"></div>
+              <mat-card-title>
+                Time Remaining
+              </mat-card-title>
+              <mat-card-subtitle>
+                Quiz will Auto-Submit when timer will hit <b>0</b>
+              </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content class="text-center">
+              <div style="display: flex ; align-items: center;flex-direction: column;">
+                <mat-spinner color="accent" mode="determinate" diameter="80" [value]="(timer/(this.questions.length * 2 * 60) * 100)" >
+                </mat-spinner>
+                <h2>
+                  Time left : {{getFormattedTime()}}
+                </h2>
+              </div>
+            </mat-card-content>
+          </mat-card>
         </div>
     </div>
 </div>
@@ -72,13 +105,16 @@
                 <mat-card-header>
                   <div mat-card-avatar class="example-header-result"></div>
                   <mat-card-title>
-                    Congratulations! You completed the quiz successfully!
+                    Hurray!!
                   </mat-card-title>
                   <mat-card-subtitle>
                     Results
                   </mat-card-subtitle>
                 </mat-card-header>
-                <mat-card-content class="text-center" dis>
+                <mat-card-content>
+                  <h1 style="font-size: large;font-weight: normal;">
+                    Congratulations! <br class="">You completed the quiz successfully!<br> An report will be send to your quiz publisher with your results.
+                  </h1>
                   <h2>
                     <mat-icon>star</mat-icon> Percentage Obtained: {{ marksAccquired }} %
                   </h2>
@@ -105,7 +141,7 @@
                   </div>
                 </mat-card-content>
                 <mat-card-actions class="text-center" style="display: flex;justify-content: space-evenly;">
-                    <button mat-raised-button color="primary"  >
+                    <button mat-raised-button color="primary"  (click)="printPage()">
                         <mat-icon>print</mat-icon>
                         <span> Print</span>
                       </button>

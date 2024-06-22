@@ -22,12 +22,14 @@ isNotSubmit: boolean=true;
   correctAnswers=0;
   attempted=0; 
   quizResult:any;
-
+  timer:any
   ngOnInit(): void {
     this.preventBackButton()
     this.questionsService.getQuestionsOfQuizForTest(this.quizId).subscribe(
       (data:any) => {
         this.questions=data
+        this.timer = this.questions.length * 2 * 60;
+        this.startTimer();
         this.questions.forEach((element:any) => {
           element['givenAnswer']='';
         });
@@ -43,33 +45,54 @@ isNotSubmit: boolean=true;
     history.pushState(null, '',location.href);
     this.location.onPopState(()=>history.pushState(null, '',location.href))
   }
+  startTimer() {
+    let t=window.setInterval(()=>{
+      
+      if (this.timer <= 0) {
+        this.evalQuiz ()
+        clearInterval(t);
+      } else {
+        this.timer--;
+      }
+    },1000)
+  }
+  printPage(){
+    window.print();
+  }
+  getFormattedTime() {
+    let mm = Math.floor(this.timer/60)
+    let ss = this.timer-mm * 60;
+    return `${mm} min:${ss} sec`
+  }
 
   submitQuiz() {
     Swal.fire({
-      title:"Do you want to start quiz?",
+      title:"Do you want to submit quiz?",
       showCancelButton:true,
       confirmButtonText:'Submit',
       icon:"question"
     }).then((result) => {
       if (result.isConfirmed) {
-        this.isNotSubmit=false
-        this.questions.forEach((element:any) => {
-          if (element.givenAnswer != null && element.givenAnswer != '') { this.attempted++}
-        });
-        this.questionsService.result(this.questions).subscribe (
-          (data:any) => {
-            this.quizResult=data;
-            this.correctAnswers=this.quizResult.correctAnswers
-            this.marksAccquired=this.quizResult.marksAcquired
-            console.log(this.attempted,this.correctAnswers,this.marksAccquired)
-            
-          },
-          (error) => {
-            Swal.fire("Error","Something went wrong please log out and attempt the quiz again","error")
-          }
-        )
-        
+         this.evalQuiz();
       }
     })
+  }
+  evalQuiz() {
+      this.isNotSubmit=false
+      this.questions.forEach((element:any) => {
+        if (element.givenAnswer != null && element.givenAnswer != '') { this.attempted++}
+      });
+      this.questionsService.result(this.questions).subscribe (
+        (data:any) => {
+          this.quizResult=data;
+          this.correctAnswers=this.quizResult.correctAnswers
+          this.marksAccquired=this.quizResult.marksAcquired
+          console.log(this.attempted,this.correctAnswers,this.marksAccquired)
+          
+        },
+        (error) => {
+          Swal.fire("Error","Something went wrong please log out and attempt the quiz again","error")
+        }
+      )
   }
 }

@@ -44,7 +44,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { InstructionsComponent } from './pages/normal/instructions/instructions.component';
 import { StartComponent } from './pages/normal/start/start.component'
 import {MatRadioModule} from '@angular/material/radio';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from "ngx-ui-loader";
+import {NgxUiLoaderBlurredDirective} from "ngx-ui-loader"
 @NgModule({
   declarations: [
     AppComponent,NavbarComponent,FootbarComponent,LoginComponent,
@@ -73,7 +75,12 @@ import {MatRadioModule} from '@angular/material/radio';
     CKEditorModule,
     MatBadgeModule,
     MatToolbarModule,
-    MatRadioModule
+    MatRadioModule,
+    MatProgressSpinnerModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({
+      showForeground:true,
+    }),
   ],
   providers: [authInterceptorsProviders],
   bootstrap: [AppComponent]
