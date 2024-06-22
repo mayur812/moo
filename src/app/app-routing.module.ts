@@ -98,12 +98,20 @@ const routes: Routes = [
     canActivate:[NormalGuard],
     children:[
       {
-        path:':catId',
+        path:'loadQuiz/:catId',
         component:LoadQuizComponent
       },
       {
         path:'instructions/:quizId',
         component:InstructionsComponent
+      },
+      {
+        path:'profile',
+        component:ProfileComponent,
+      },
+      {
+        path:'update-profile/:username',
+        component:UpdateProfileComponent,
       },
       
     ],

@@ -56,7 +56,10 @@
         </div>
       </div> 
     </mat-card-content>
-    <mat-card-actions class="text-center">
+    <mat-card-actions class="text-center" *ngIf="this.loginService.isLoggedIn() && this.loginService.getUserRole()=='ADMIN' ">
       <button mat-raised-button color="accent" [routerLink]="'/admin-dashboard/update-profile/'+user.username">UPDATE</button>
+    </mat-card-actions>
+    <mat-card-actions class="text-center" *ngIf="this.loginService.isLoggedIn() && this.loginService.getUserRole()=='NORMAL' ">
+      <button mat-raised-button color="accent" [routerLink]="'/user-dashboard/update-profile/'+user.username">UPDATE</button>
     </mat-card-actions>
 </mat-card>
