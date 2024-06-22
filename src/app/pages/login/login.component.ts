@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       return
     }
     
-    if (this.loginData.password.length < 8 ) {
+    if (this.loginData.password.length < 8 || !this.hasSpecialChars(this.loginData.password)) {
       this.snack.open("Password does not follow the guidlines!",'Ok')
       return
     }

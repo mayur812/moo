@@ -20,6 +20,7 @@ import { AddQuestionComponent } from './pages/admin/add-question/add-question.co
 import { LoadQuizComponent } from './pages/normal/load-quiz/load-quiz.component';
 import { InstructionsComponent } from './pages/normal/instructions/instructions.component';
 import { StartComponent } from './pages/normal/start/start.component';
+import { UpdateProfileComponent } from './pages/update-profile/update-profile.component';
 
 const routes: Routes = [
 
@@ -52,6 +53,10 @@ const routes: Routes = [
     children:[{
       path:'profile',
       component:ProfileComponent,
+    },
+    {
+      path:'update-profile/:username',
+      component:UpdateProfileComponent,
     },
     {
       path:'',

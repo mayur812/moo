@@ -57,7 +57,6 @@
       </div> 
     </mat-card-content>
     <mat-card-actions class="text-center">
-      <button mat-raised-button color="accent">UPDATE</button>
-      <button mat-raised-button color="primary">SHARE</button>
+      <button mat-raised-button color="accent" [routerLink]="'/admin-dashboard/update-profile/'+user.username">UPDATE</button>
     </mat-card-actions>
 </mat-card>

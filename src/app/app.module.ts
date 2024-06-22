@@ -46,12 +46,13 @@ import { StartComponent } from './pages/normal/start/start.component'
 import {MatRadioModule} from '@angular/material/radio';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from "ngx-ui-loader";
-import {NgxUiLoaderBlurredDirective} from "ngx-ui-loader"
+import {NgxUiLoaderBlurredDirective} from "ngx-ui-loader";
+import { UpdateProfileComponent } from './pages/update-profile/update-profile.component'
 @NgModule({
   declarations: [
     AppComponent,NavbarComponent,FootbarComponent,LoginComponent,
     SignupComponent, HomeComponent, AdminDashboardComponent,
-     UserDashboardComponent, ProfileComponent, SidebarComponent, WelcomeComponent, ViewCategoriesComponent, AddCategoriesComponent, ViewQuizzesComponent, AddQuizComponent, UpdateQuizesComponent, ViewQuestionsComponent, AddQuestionComponent, SidebarUserComponent, LoadQuizComponent, InstructionsComponent, StartComponent
+     UserDashboardComponent, ProfileComponent, SidebarComponent, WelcomeComponent, ViewCategoriesComponent, AddCategoriesComponent, ViewQuizzesComponent, AddQuizComponent, UpdateQuizesComponent, ViewQuestionsComponent, AddQuestionComponent, SidebarUserComponent, LoadQuizComponent, InstructionsComponent, StartComponent, UpdateProfileComponent
   ],
   imports: [
     BrowserModule,

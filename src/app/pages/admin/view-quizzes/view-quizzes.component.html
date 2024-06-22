@@ -19,7 +19,6 @@
         <button mat-stroked-button color="primary">Max Marks {{q.maxMarks}}</button>
         <button mat-stroked-button color="accent">Questions 50</button>
         <button mat-flat-button color="primary" [routerLink]="'/admin-dashboard/quiz/'+ q.quizId">Update</button>
-        <button mat-flat-button color="accent">Attempts</button>
         <button mat-mini-fab color="warn" (click)="deleteQuiz(q.quizId)">
             <mat-icon>delete</mat-icon>
         </button>
