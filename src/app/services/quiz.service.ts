@@ -30,5 +30,8 @@ export class QuizService {
   public getQuizByCategoryId(categoryId:number) {
     return this.http.get(`${baseUrl}/quiz/category/${categoryId}`);
   }
+  public getQuizResponse() {
+    return this.http.get(`${baseUrl}/quizResponse/`);
+  }
 
 }

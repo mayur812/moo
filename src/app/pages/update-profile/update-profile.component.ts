@@ -30,34 +30,36 @@ export class UpdateProfileComponent implements OnInit {
       return
     }
     delete this.user.authorities;
-    console.log(this.user)
-    this.userService.updateUser(this.user).subscribe(
-      (data:any) => {
-        if (data.error != null) {
-          this.snack.open(data.error,'Ok!',{
-            duration:5000,
-          })
-          return
-        }
-        Swal.fire({
-          icon:'info',
-          title:'You will be logged out after performing this action,Are you sure you want to update your profile?',
-          confirmButtonText:'Yes',
-          showCancelButton:true,
-          cancelButtonText:'No',
-          cancelButtonColor:'red'
-        }).then((result)=>{
-          if (result.isConfirmed) {
-            this.loginService.logout();
-            this.user = null;
-            window.location.reload();
+    Swal.fire({
+      icon:'info',
+      title:'You will be logged out after performing this action,Are you sure you want to update your profile?',
+      confirmButtonText:'Yes',
+      showCancelButton:true,
+      cancelButtonText:'No',
+      cancelButtonColor:'red'
+    }).then((result)=>{
+      if (result.isConfirmed) {
+        this.userService.updateUser(this.user).subscribe(
+          (data:any) => {
+            if (data.error != null) {
+              this.snack.open(data.error,'Ok!',{
+                duration:5000,
+              })
+              return
+            }
+            
+          },
+          (error) => {
+            Swal.fire("Oops!","Something went wrong!","error")
           }
-        })
-      },
-      (error) => {
-        Swal.fire("Oops!","Something went wrong!","error")
+        )
+        this.loginService.logout();
+        this.user = null;
+        window.location.reload();
       }
-    )
+    })
+    
+    
 
   
   } 

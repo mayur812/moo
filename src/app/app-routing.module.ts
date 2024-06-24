@@ -28,7 +28,6 @@ const routes: Routes = [
   {
     path:'',
     component:HomeComponent,
-    pathMatch:'full',
     canActivate:[NobackGuard],
   
   },
